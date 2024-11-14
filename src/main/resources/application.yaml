@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: WebFluxProject
+
+  r2dbc:
+    url: ${R2DBC_URL:r2dbc:pool:postgresql://localhost:5432/webfluxsecurity}
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:123456}
+
+  flyway:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/webfluxsecurity}
+    user: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:123456}
+    locations: classpath:db/migration
+    baselineOnMigrate: true
+
+jwt:
+  password:
+    encoder:
+      secret: FZK2DZ82odqS13e8aENggaMbb_fAkl-nJL4AEVBX43g
+      iteration: 64
+      keylength: 256
+
+  secret: b5f59337a612a2a7dc07328f3e7d1a04722967c7f06df20a499a7d3f91ff2a7e
+  expiration: 3600
+  issuer: example
